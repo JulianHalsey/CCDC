@@ -44,3 +44,24 @@
 
 - Show logged-on users : who -aH OR w
 - List of recent logins : last
+- History of logons to system : use Aureport
+  - Install : sudo apt-get install aditd
+  - Information about authenticaiton attempts : aureport -au
+  - Failed login attempts from current day : aureport -au --failed --start today
+  
+<br>
+
+<h3>Determining User Activity</h3>
+
+- Find UID of given account name : id (name)
+- Find username of given UID : getent passwd (UID)
+- User account UID's begin with 500 or 100 (system accounts < 500)
+- Provides list of commands ran by user : history
+
+<br>
+
+<h3>SSH</h3>
+
+- Install : sudo apt-get install openssh-server
+- View status : systemctl status ssh
+- Configuration in : /etc/ssh/sshd_config
