@@ -1,15 +1,19 @@
 <h1>CCDC Notes</h1>
-
+Linux machines
 <br />
 
-<h3>Updating</h3>
+<h3>1. Updating</h3>
 
-- Update server manually : apt update
-- If update needed : apt dist-upgrade
+- Update information about software (not actual software) : apt update
+- Update actual software : apt dist-upgrade
 - Enable automatic updates : apt install unattended-upgrades
   - Setup : dpkg-reconfigure --priority=low unattended-upgrades
 
-<br>
+<h3>2. Anti-malware/virus Downloads</h3>
+
+- clamav : scans for viruses
+- rkhunter : 
+- chkrootkit : 
 
 <h3>Creating authentication key pair</h3>
 
