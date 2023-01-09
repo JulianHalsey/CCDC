@@ -4,16 +4,25 @@ Linux machines
 
 <h3>1. Updating</h3>
 
-- Update information about software (not actual software) : apt update
+- Update information about software (not actual software) : apt-get update
 - Update actual software : apt dist-upgrade
 - Enable automatic updates : apt install unattended-upgrades
   - Setup : dpkg-reconfigure --priority=low unattended-upgrades
 
 <h3>2. Anti-malware/virus Downloads</h3>
 
-- clamav : scans for viruses
-- rkhunter : 
-- chkrootkit : 
+- apt-get install clamav : install virus scanner
+  - Update virus definitions : freshclam
+  - Run scanner : clamscan -i (only show infected) r (recursively) / (where to scan)
+- rkhunter -c : rootkit and exploitation scanner
+- chkrootkit -q : shows what rootkit finds suspicious
+
+<h3>3. Passwords</h3>
+
+- Configure users and permissions/passwords based on requirements
+- Install password policy library (password authentication modules- PAM) : apt-get install libpam-cracklib
+- Password policy configuration files in /etc/pam.d
+  - commom-password : 
 
 <h3>Creating authentication key pair</h3>
 
