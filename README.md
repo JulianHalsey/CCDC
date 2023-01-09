@@ -40,7 +40,7 @@
     
     <br>
 
-<h3>Determinding who's logged in</h3>
+<h3>Determining who's logged in</h3>
 
 - Show logged-on users : who -aH OR w
 - List of recent logins : last
