@@ -39,6 +39,16 @@ Linux machines
   - View sites : ls /etc/apache2/sites-available
   - Create new site : nano /etc/apache2/sites-available/name.net.conf
 
+<h3>mySQL</h3>
+
+- TCP/3306
+- Install : apt install mysql-server
+- Security:
+  - To start : sudo mysql_secure_installation
+  - Set password for mySQL
+    - If error : sudo mysql then ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootPasswordHere';
+  - Press y for rest of questions to make it more secure
+
 
 <h3>Creating authentication key pair</h3>
 
