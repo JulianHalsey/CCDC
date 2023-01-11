@@ -24,6 +24,22 @@ Linux machines
 - Password policy configuration files in /etc/pam.d
   - commom-password : 
 
+<h3>Apache Server</h3>
+
+- Primary configuration file : /etc/apache2/apache2.conf
+- Change name : /etc/localhost
+- Change IP address : /etc/hosts
+- Install : apt install apache2 apache2-doc apache2-utils
+- Check status OR stop/start/restart : systemctl status/stop/start/restart apache2 
+  - If disabled : systemctl enable apache2
+  - Restarting drops all users so better to reload
+- View available modules : apt search libapache2-mod
+- (Ubuntu) Enable/Disable mod : a2enmod / a2dismod
+- Enable/Disable a site : a2ensite / a2dissite
+  - View sites : ls /etc/apache2/sites-available
+  - Create new site : nano /etc/apache2/sites-available/name.net.conf
+
+
 <h3>Creating authentication key pair</h3>
 
 - Store public keys : mkdir ~/.ssh && chmod 700 ~/.ssh
@@ -34,8 +50,6 @@ Linux machines
 - Upload public key to server
   - Windows :scp $env:USERPROFILE/.ssh/id_rsa.pub (name)@(server ip):~/.ssh/authorized_keys
   - Linux : ssh-copy-id (name)@(server IP)
-
-<br>
 
 <h3>Firewall</h3>
 
@@ -50,8 +64,7 @@ Linux machines
       - Under "ok icmp codes for input" enter line : -A ufw-before-input -p icmp —icmp-type echo-request -j DROP
       - Exit nano : ctrl+x, y, enter
     - Restart firewall : sudo ufw reboot
-    
-    <br>
+   
 
 <h3>Determining who's logged in</h3>
 
@@ -61,8 +74,7 @@ Linux machines
   - Install : sudo apt-get install aditd
   - Information about authenticaiton attempts : aureport -au
   - Failed login attempts from current day : aureport -au --failed --start today
-  
-<br>
+
 
 <h3>Determining User Activity</h3>
 
@@ -70,8 +82,6 @@ Linux machines
 - Find username of given UID : getent passwd (UID)
 - User account UID's begin with 500 or 100 (system accounts < 500)
 - Provides list of commands ran by user : history
-
-<br>
 
 <h3>SSH</h3>
 
