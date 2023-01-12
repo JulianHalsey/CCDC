@@ -9,7 +9,7 @@ Linux machines
 - Enable automatic updates : apt install unattended-upgrades
   - Setup : dpkg-reconfigure --priority=low unattended-upgrades
 
-<h3>2. Anti-malware/virus Downloads</h3>
+<h3>2. Anti-malware/virus Software</h3>
 
 - apt-get install clamav : install virus scanner
   - Update virus definitions : freshclam
