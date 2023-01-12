@@ -26,6 +26,7 @@ Linux machines
 
 <h3>Apache Server</h3>
 
+- Port 80 and 443
 - Primary configuration file : /etc/apache2/apache2.conf
 - Change name : /etc/localhost
 - Change IP address : /etc/hosts
@@ -65,8 +66,20 @@ Linux machines
 
 - See open ports : sudo ss -tulpn
 - Install ufw : sudo apt install ufw
-  - Put in door : sudo ufw all (port #)
-  - Enable it : sudo ufw enable
+- View config file : nano /etc/default/ufw
+- Do all configurations before enabling : ufw disable
+- Reset policies : ufw reset
+- Deny incoming connections : ufw default deny incoming
+- Allow outgoing connecitons : ufw default allow outgoing
+- If other systems not working : sudo systemctl stop ufw
+- Allow services or ports : ufw allow ssh/http
+  - Only allow certain IP to service : ufw allow from 10.0.0.1 to any port 22
+- Allow certain IP address : ufw allow from 10.0.0.1
+- View allowed ports : ufw status
+- Enable it : sudo ufw enable
+- View numbered rules : ufw status numbered
+  - Delete rule : ufw delete #
+- Only need allow for rules since default set to deny
 - Hide server
   - Ping IP : ping (server IP) -t
   - Block ping :
