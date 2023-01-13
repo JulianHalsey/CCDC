@@ -40,28 +40,6 @@ Linux machines
   - View sites : ls /etc/apache2/sites-available
   - Create new site : nano /etc/apache2/sites-available/name.net.conf
 
-<h3>mySQL</h3>
-
-- TCP/3306
-- Install : apt install mysql-server
-- Security:
-  - To start : sudo mysql_secure_installation
-  - Set password for mySQL
-    - If error : sudo mysql then ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootPasswordHere';
-  - Press y for rest of questions to make it more secure
-
-
-<h3>Creating authentication key pair</h3>
-
-- Store public keys : mkdir ~/.ssh && chmod 700 ~/.ssh
-- Backout of server : logout
-- Create new server keys: ssh-keygen -b 4096
-- View keys : cd .ssh then ls
-  - id_rsa is Private and id_rsa.pub is Public
-- Upload public key to server
-  - Windows :scp $env:USERPROFILE/.ssh/id_rsa.pub (name)@(server ip):~/.ssh/authorized_keys
-  - Linux : ssh-copy-id (name)@(server IP)
-
 <h3>Firewall</h3>
 
 - See open ports : sudo ss -tulpn
@@ -87,6 +65,35 @@ Linux machines
       - Under "ok icmp codes for input" enter line : -A ufw-before-input -p icmp —icmp-type echo-request -j DROP
       - Exit nano : ctrl+x, y, enter
     - Restart firewall : sudo ufw reboot
+    
+ <h3>Logging</h3>
+ 
+ - All logs stored : ls -al /var/log/
+ - Conatains info on failed login attempts : auth.log
+   - To search for certain service : | grep -a "sshd"
+    
+<h3>mySQL</h3>
+
+- TCP/3306
+- Install : apt install mysql-server
+- Security:
+  - To start : sudo mysql_secure_installation
+  - Set password for mySQL
+    - If error : sudo mysql then ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootPasswordHere';
+  - Press y for rest of questions to make it more secure
+
+
+<h3>Creating authentication key pair</h3>
+
+- Store public keys : mkdir ~/.ssh && chmod 700 ~/.ssh
+- Backout of server : logout
+- Create new server keys: ssh-keygen -b 4096
+- View keys : cd .ssh then ls
+  - id_rsa is Private and id_rsa.pub is Public
+- Upload public key to server
+  - Windows :scp $env:USERPROFILE/.ssh/id_rsa.pub (name)@(server ip):~/.ssh/authorized_keys
+  - Linux : ssh-copy-id (name)@(server IP)
+
    
 
 <h3>Determining who's logged in</h3>
