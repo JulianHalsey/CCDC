@@ -39,6 +39,16 @@ Linux machines
 - Enable/Disable a site : a2ensite / a2dissite
   - View sites : ls /etc/apache2/sites-available
   - Create new site : nano /etc/apache2/sites-available/name.net.conf
+  
+<h3>mySQL</h3>
+
+- TCP/3306
+- Install : apt install mysql-server
+- Security:
+  - To start : sudo mysql_secure_installation
+  - Set password for mySQL
+    - If error : sudo mysql then ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootPasswordHere';
+  - Press y for rest of questions to make it more secure
 
 <h3>Firewall</h3>
 
@@ -71,16 +81,15 @@ Linux machines
  - All logs stored : ls -al /var/log/
  - Conatains info on failed login attempts : auth.log
    - To search for certain service : | grep -a "sshd"
-    
-<h3>mySQL</h3>
-
-- TCP/3306
-- Install : apt install mysql-server
-- Security:
-  - To start : sudo mysql_secure_installation
-  - Set password for mySQL
-    - If error : sudo mysql then ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootPasswordHere';
-  - Press y for rest of questions to make it more secure
+ - List of recent logins and info : last -aiF
+ - Bad-logon attempts to root : lastb -adF root
+ - Find last login of specific user : lastlog -u root
+ - Show logged-on users : who -aH OR w
+ - View processes and reosurces running : htop
+   - F6 to search and F9 to kill
+ - Overview of entire system : glances
+ - Monitor logged on users and what they're doing : whowatch
+   - Ctrl+K to remotely kill process
 
 
 <h3>Creating authentication key pair</h3>
@@ -98,8 +107,6 @@ Linux machines
 
 <h3>Determining who's logged in</h3>
 
-- Show logged-on users : who -aH OR w
-- List of recent logins : last
 - History of logons to system : use Aureport
   - Install : sudo apt-get install aditd
   - Information about authenticaiton attempts : aureport -au
