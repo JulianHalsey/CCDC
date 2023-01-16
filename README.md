@@ -22,7 +22,17 @@ Linux machines
 - Configure users and permissions/passwords based on requirements
 - Install password policy library (password authentication modules- PAM) : apt-get install libpam-cracklib
 - Password policy configuration files in /etc/pam.d
-  - commom-password : 
+  - commom-password : line under "per-package modules" contains minimum password length and # of different characters from original
+    - Can add/change these under "per-package modules" line:
+      - minlen = minimum password length
+      - minclass = minimum number of character types that must be used (i.e., uppercase, lowercase, digits, other)
+      - maxrepeat = maximum number of times a single character may be repeated
+      - maxclassrepeat = maximum number of characters in a row that can be in the same class
+      - lcredit = minimum # of lowercase characters 
+      - ucredit = minimum # of uppercase characters 
+      - dcredit = minimum # of numbers 
+      - ocredit = minimum # of other characters 
+      - difok = the minimum # of characters that must be different from the old password
 
 <h3>Apache Server</h3>
 
