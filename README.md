@@ -19,20 +19,35 @@ Linux machines
 
 <h3>3. Passwords</h3>
 
-- Configure users and permissions/passwords based on requirements
 - Install password policy library (password authentication modules- PAM) : apt-get install libpam-cracklib
-- Password policy configuration files in /etc/pam.d
-  - commom-password : line under "per-package modules" contains minimum password length and # of different characters from original
-    - Can add/change these under "per-package modules" line:
-      - minlen = minimum password length
-      - minclass = minimum number of character types that must be used (i.e., uppercase, lowercase, digits, other)
+- /etc/pam.d : Set of libraries to manage user authentication
+  - /commom-password : password configuration (length, complexity, etc.)
+    - pam_unix.so
+      - remeber=5
+        - Can't reuse last 5 password
+      - minlen=8
+        - minimum password length
+    - pam_cracklib.so
+      - ucredit=1 lcredit=1 dcredit=1 ocredit=1
+        - upper, lower, number, symbol # required
+  - /common-auth
+    - auth required pam_tally2.so deny=5 onerr=fail unlock_time=1800
+      - Add to end of file
+      - Number of allowed failed logins = 5
+      - account lockout duration = 1800 seconds (30 min)
+    - Don't get locked out
+- /etc/login.defs : password expiry, not PAM
+  - PASS_MAX_DAYS    90
+    - Maximum passowrd duration
+  - PASS_MIN_DAYS    10
+    - Minimum duration before password expires
+  - PASS_WARN_AGE    7
+    - Days before expiration to warn users
+    
+      - minclass = minimum # of character types that must be used (i.e., uppercase, lowercase, digits, other)
       - maxrepeat = maximum number of times a single character may be repeated
       - maxclassrepeat = maximum number of characters in a row that can be in the same class
-      - lcredit = minimum # of lowercase characters 
-      - ucredit = minimum # of uppercase characters 
-      - dcredit = minimum # of numbers 
-      - ocredit = minimum # of other characters 
-      - difok = the minimum # of characters that must be different from the old password
+      
 
 <h3>Apache Server</h3>
 
