@@ -37,7 +37,7 @@ Linux machines
       - account lockout duration = 1800 seconds (30 min)
     - Don't get locked out
 - /etc/login.defs : password expiry, not PAM
-  - PASS_MAX_DAYS    90
+  - PASS_MAX_DAYS    20
     - Maximum passowrd duration
   - PASS_MIN_DAYS    10
     - Minimum duration before password expires
@@ -47,7 +47,43 @@ Linux machines
       - minclass = minimum # of character types that must be used (i.e., uppercase, lowercase, digits, other)
       - maxrepeat = maximum number of times a single character may be repeated
       - maxclassrepeat = maximum number of characters in a row that can be in the same class
-      
+     
+<h3>4. Disable Guest User</h3>
+
+- Lightdm : Ubuntu display manager (login screen)
+  - /etc/lightdm/lightdm.conf : add your config here
+  - /etc/lightdm/lightdm.conf.d/ : folder contains additional configs
+    - allow-guest=false
+    - Add [SeatDefaults] on 1st line if empty
+  - Restart : service lightdm restart
+  
+<h3>5. Sysctl</h3>
+
+- Modifies attributes of system kernel
+- /etc/sysctl.conf
+  - net.ipv4.tcp_synack_retries = 2
+  - net.ipv4.tcp_rfc1337 = 1
+  - kernel.randomize_va_space = 2
+  - net.ipv4.icmp_echo_ignore_broadcasts = 1
+- Save changes : sysctl -p
+
+<h3>5. Grub</h3>
+
+- GNU boot loader
+  - Loads the kernel into memory
+- grub-mkpassword-pbkdf2
+  - Creates encrypted password
+- /etc/grub.d/00_header
+  - Go to end of file and add
+    - cat <<EOF
+    - set superuser="root"
+    - password_pbkdf2 root <encrypted-password>
+    - EOF
+- sudo update-grub
+
+<h3>IP Spoofing</h3>
+
+- 
 
 <h3>Apache Server</h3>
 
