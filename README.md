@@ -6,8 +6,6 @@ Linux machines
 
 - Update information about software (not actual software) : apt-get update
 - Update actual software : apt dist-upgrade
-- Enable automatic updates : apt install unattended-upgrades
-  - Setup : dpkg-reconfigure --priority=low unattended-upgrades
 
 <h3>2. Anti-malware/virus Software</h3>
 
