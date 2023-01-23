@@ -67,11 +67,11 @@ Linux machines
   - net.ipv4.icmp_echo_ignore_broadcasts = 1
 - Save changes : sysctl -p
 
-<h3>5. Grub</h3>
+<h3>6. Grub</h3>
 
 - GNU boot loader
   - Loads the kernel into memory
-- grub-mkpassword-pbkdf2
+- sudo grub-mkpassword-pbkdf2
   - Creates encrypted password
 - /etc/grub.d/00_header
   - Go to end of file and add
@@ -81,9 +81,39 @@ Linux machines
     - EOF
 - sudo update-grub
 
-<h3>IP Spoofing</h3>
+<h3>7. IP Spoofing</h3>
 
-- 
+- Sending packets with fake IP addresses
+  - Often used in DDoS
+- /etc/host.conf
+  - order bind,host
+    - Specifies order in which host lookups are performed
+  - nospoof on
+    - attempts to prevent hostname spoofing
+  - multi off
+    - Library only returns the first valid address for host
+
+<h3>8. File Permissions and Ownership</h3>
+
+- ls -l <file>
+- chmod [-R, --recursive]ARGS FILEPATH
+  - user, group, other -- ugo
+  - read, write, execute -- rwx
+  - Ocatl 
+    - read - 4
+    - write - 2
+    - execute - 1
+  - Ex. chmod o-rwx,g=wx <file>
+    - Takes away all permissions from other, group has write and execute permissions
+- chown [-R, --recursive] USER:GROUP FILEPATH
+  
+<h4>Permissions Cheat Sheet</h4>
+  
+- /etc/passwd 644 root:root
+- /etc/shadow 640 root:shadow
+- /etc/group 644 root:root
+- /etc/gshadow 640 root:shadow
+- /etc/sudoers 440 root:root
 
 <h3>Apache Server</h3>
 
