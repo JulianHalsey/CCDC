@@ -9,9 +9,11 @@ Linux machines
 
 <h3>2. Anti-malware/virus Software</h3>
 
-- apt-get install clamav : install virus scanner
+- ***apt-get install clamav : install virus scanner
   - Update virus definitions : freshclam
   - Run scanner : clamscan -i (only show infected) r (recursively) / (where to scan)
+  - (crontime)
+  - Mak
 - rkhunter -c : rootkit and exploitation scanner
 - chkrootkit -q : shows what rootkit finds suspicious
 
@@ -179,6 +181,7 @@ Linux machines
  - Overview of entire system : glances
  - Monitor logged on users and what they're doing : whowatch
    - Ctrl+K to remotely kill process
+
 
 
 <h3>Creating authentication key pair</h3>
