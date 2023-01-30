@@ -13,7 +13,6 @@ Linux machines
   - Update virus definitions : freshclam
   - Run scanner : clamscan -i (only show infected) r (recursively) / (where to scan)
   - (crontime)
-  - Mak
 - rkhunter -c : rootkit and exploitation scanner
 - chkrootkit -q : shows what rootkit finds suspicious
 
@@ -43,10 +42,7 @@ Linux machines
     - Minimum duration before password expires
   - PASS_WARN_AGE    7
     - Days before expiration to warn users
-    
-      - minclass = minimum # of character types that must be used (i.e., uppercase, lowercase, digits, other)
-      - maxrepeat = maximum number of times a single character may be repeated
-      - maxclassrepeat = maximum number of characters in a row that can be in the same class
+   
      
 <h3>4. Disable Guest User</h3>
 
