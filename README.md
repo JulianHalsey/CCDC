@@ -67,7 +67,7 @@ Linux machines
 
 - GNU boot loader
   - Loads the kernel into memory
-- sudo grub-mkpassword-pbkdf2
+- sudo grub-mkpasswd-pbkdf2
   - Creates encrypted password
 - /etc/grub.d/00_header
   - Go to end of file and add
